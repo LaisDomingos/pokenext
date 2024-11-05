@@ -1,45 +1,53 @@
-import styles from '../../styles/Pokemon.module.css'
+import styles from "../../styles/Pokemon.module.css";
 
-import Image from 'next/image'
+import Image from "next/image";
+
+import { useRouter } from "next/router";
 
 //Aqui pega todos os dados, saber o que tem disponível
-export const getStaticPaths = async() => {
-    const maxPokemons = 255
-    const api = `https://pokeapi.co/api/v2/pokemon/`
-  
-    const res = await fetch(`${api}/?limit=${maxPokemons}`)
-  
-    const data = await res.json()
-  
-    //params -> como não tem o id do pokemon na API, fomos nós que criamos, ele vai pegar o valor 
-    const paths = data.results.map((pokemon, index) => {
-      return {
-        params: { pokemonId: (index+1).toString() },
-      }
-    })
-  
+export const getStaticPaths = async () => {
+  const maxPokemons = 255;
+  const api = `https://pokeapi.co/api/v2/pokemon/`;
+
+  const res = await fetch(`${api}/?limit=${maxPokemons}`);
+
+  const data = await res.json();
+
+  //params -> como não tem o id do pokemon na API, fomos nós que criamos, ele vai pegar o valor
+  const paths = data.results.map((pokemon, index) => {
     return {
-      paths,
-      fallback: false,
-    }
-}
+      params: { pokemonId: (index + 1).toString() },
+    };
+  });
+
+  return {
+    paths,
+    fallback: true,
+  };
+};
 
 //Pega o que tem disponível
-export const getStaticProps = async(context) => {
-    const id = context.params.pokemonId
+export const getStaticProps = async (context) => {
+  const id = context.params.pokemonId;
 
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
-  const data = await res.json()
+  const data = await res.json();
 
   return {
     props: { pokemon: data },
-  }
-}
+  };
+};
 
-export  default function Pokemon ({ pokemon }){
-    return(
-        <div className={styles.pokemon_container}>
+export default function Pokemon({ pokemon }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Carregando...</div>;
+  }
+
+  return (
+    <div className={styles.pokemon_container}>
       <h1 className={styles.title}>{pokemon.name}</h1>
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
@@ -58,7 +66,7 @@ export  default function Pokemon ({ pokemon }){
           {pokemon.types.map((item, index) => (
             <span
               key={index}
-              className={`${styles.type} ${styles['type_' + item.type.name]}`}
+              className={`${styles.type} ${styles["type_" + item.type.name]}`}
             >
               {item.type.name}
             </span>
@@ -76,5 +84,5 @@ export  default function Pokemon ({ pokemon }){
         </div>
       </div>
     </div>
-    )
+  );
 }
