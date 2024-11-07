@@ -14,8 +14,13 @@ PokeNext é uma aplicação de listagem e busca de Pokémon criada com Next.js. 
 - **CSS Modules**: Estilização para componentes, garantindo escopo local para cada estilo.
 
 ## 📸 Demonstração
+![image](https://github.com/user-attachments/assets/a454fed6-490f-4b65-8443-1f71f980fa18)
+
 ### Página Inicial
 A página inicial exibe uma lista de Pokémon, com informações básicas e uma opção de detalhes.
+
+### Página de Detalhes
+Ao clicar em um Pokémon, você será redirecionado para uma página com informações detalhadas sobre o Pokémon selecionado, como suas estatísticas e habilidades.
 
 ### Página "Sobre o Projeto"
 Descrição do projeto e objetivos de aprendizado, junto com uma imagem de destaque.
