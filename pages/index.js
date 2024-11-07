@@ -1,23 +1,17 @@
 import styles from "../styles/Home.module.css";
-
+import { useState } from "react"; //// Hook para controlar o estado de busca
 import Image from "next/image";
 
 //Meus componentes
 import Card from "../components/Card";
 
 export async function getStaticProps() {
-	//Aqui definimos a quantidade que queremos pedir, quanto mais, mais demora para o load
   const maxPokemons = 255; 
-  //Rota da API
   const api = `https://pokeapi.co/api/v2/pokemon/`; 
 
-	//Essa API podemos colocar o limit
   const res = await fetch(`${api}/?limit=${maxPokemons}`);
-  
-  //Transformar em json
   const data = await res.json();
 
-  //Criar o indice de cada pokemon, pois essa API vem apenas o nome e uma URL
   data.results.forEach((item, index) => {
     item.id = index + 1;
   });
@@ -29,7 +23,14 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home( {pokemons }) {
+export default function Home({ pokemons }) {
+  const [search, setSearch] = useState(""); // Declara o "search" com o valor inicial como uma string vazia
+
+  // Filtrar os Pokémon de acordo com o termo de busca
+  const filteredPokemons = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <div className={styles.title_container}>
@@ -43,12 +44,20 @@ export default function Home( {pokemons }) {
           alt="PokeNext"
         />
       </div>
+      <div className={styles.search_container}>
+        <input
+          type="text"
+          placeholder="Buscar Pokémon"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)} // Atualiza o estado "search" com o valor digitado pelo usuário
+          className={styles.search_input}
+        />
+      </div>
       <div className={styles.pokemon_container}>
-          {pokemons.map((pokemon)=> (
-          <Card key= {pokemon.id} pokemon={pokemon}/>
-          ))}
+        {filteredPokemons.map((pokemon) => ( //Mapeia a lista filtrada de Pokémon para exibir apenas os correspondentes
+          <Card key={pokemon.id} pokemon={pokemon} /> //Renderiz os pokemons
+        ))}
       </div>
     </>
-    
   );
 }

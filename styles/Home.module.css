@@ -24,3 +24,17 @@
   max-width: 1100px;
   margin: 0 auto;
 }
+
+.search_container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.search_input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 1100px;
+}
