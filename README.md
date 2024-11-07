@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PokeNext
 
-## Getting Started
+PokeNext é uma aplicação de listagem e busca de Pokémon criada com Next.js. Este projeto é meu primeiro em Next.js, desenvolvido com base no curso do canal Matheus Battist - Hora de Codar. Além de seguir o curso, adicionei uma nova funcionalidade: uma barra de pesquisa para encontrar Pokémon pelo nome.
 
-First, run the development server:
+## 🚀 Funcionalidades
+- Exibição de uma lista com mais de 200 Pokémon.
+- Barra de pesquisa para facilitar a busca de Pokémon pelo nome.
+- Consumo da PokeAPI para obter dados dos Pokémon.
+- Design simples e intuitivo, com componentes para exibir informações de cada Pokémon.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠 Tecnologias Utilizadas
+- **Next.js**: Estrutura de desenvolvimento em React que facilita a criação de sites estáticos e aplicativos com renderização do lado do servidor.
+- **React**: Biblioteca JavaScript para criação de interfaces de usuário.
+- **CSS Modules**: Estilização para componentes, garantindo escopo local para cada estilo.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Demonstração
+### Página Inicial
+A página inicial exibe uma lista de Pokémon, com informações básicas e uma opção de detalhes.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Página "Sobre o Projeto"
+Descrição do projeto e objetivos de aprendizado, junto com uma imagem de destaque.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Funcionalidade de Busca
+A barra de pesquisa permite buscar Pokémon pelo nome, facilitando o acesso rápido a informações específicas.
 
-## Learn More
+## 📦 Como Rodar o Projeto
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/pokenext.git
+    ```
+2. Acesse o diretório do projeto:
+    ```bash
+    cd pokenext
+    ```
+3. Instale as dependências:
+    ```bash
+    npm install
+    ```
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+5. Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o projeto em ação.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📚 Aprendizados
+Este projeto foi uma excelente introdução ao Next.js, permitindo-me aprender sobre:
+- Renderização estática com `getStaticProps`.
+- Uso de componentes e estado no React.
+- Consumo de APIs REST e manipulação de dados JSON.
+- Estilização com CSS Modules.
