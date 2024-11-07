@@ -28,6 +28,9 @@ Descrição do projeto e objetivos de aprendizado, junto com uma imagem de desta
 ### Funcionalidade de Busca
 A barra de pesquisa permite buscar Pokémon pelo nome, facilitando o acesso rápido a informações específicas.
 
+## 🌐 Visualize o Projeto
+Se quiser visualizar o projeto, acesse: [https://pokenext-umber.vercel.app](https://pokenext-umber.vercel.app)
+
 ## 📦 Como Rodar o Projeto
 1. Clone o repositório:
     ```bash
