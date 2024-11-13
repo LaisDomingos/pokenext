@@ -12,7 +12,7 @@ export default function About() {
                         <strong> Matheus Battist - Hora de Codar</strong>.O objetivo é aprender a utilizar Next.js 
                         explorando o universo Pokémon, uma franquia repleta de criaturas fascinantes e ricas em 
                         história. Lançado no Japão em 1996, Pokémon permite que os jogadores capturem e treinem 
-                        seus próprios “Pokémons” para batalhas em um mundo vasto e cheio de aventuras.
+                        seus próprios “Pokémons” para batalhas em um mundo cheio de aventuras.
                     </p>
                 </div>
                 <Image className={styles.image} src='/images/charizard.png' width={300} height={300} alt="Charizard" />
